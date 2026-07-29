@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import GraphicsPhysicallyBasedRenderingCanonicalLaneLean.PBRTransformLayer
+import GraphicsPhysicallyBasedRenderingCanonicalLaneLean.BRDFMicrofacetModel
+import GraphicsPhysicallyBasedRenderingCanonicalLaneLean.LightTransportIntegral
+import GraphicsPhysicallyBasedRenderingCanonicalLaneLean.SpectralRenderingPipeline
+
+namespace HautevilleHouse
+namespace GraphicsPhysicallyBasedRenderingCanonicalLaneLean
+
+def ConstrainedPBRClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_pbr_endgame (A : AdmissibleClass) : ConstrainedPBRClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end GraphicsPhysicallyBasedRenderingCanonicalLaneLean
+end HautevilleHouse
